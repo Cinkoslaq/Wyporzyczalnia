@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista Wynajmu</title>
+</head>
+<body>
+    <h1>Lista Wynajmu</h1>
+    <ul>
+        {% for rental in rental_items %}
+            <li><a href="{% url 'rental_detail' rental.id %}">Wynajem {{ rental.id }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

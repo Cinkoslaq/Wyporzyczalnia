@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona Startowa</title>
+</head>
+<body>
+    <header>
+        <h1>Witaj na Stronie Startowej</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'onas' %}">O nas</a></li>
+            <li><a href="{% url 'uslugi' %}">Usługi</a></li>
+            <li><a href="{% url 'machinery_list' %}">Maszyny</a></li>
+            <li><a href="{% url 'add_machinery' %}">Dodaj Maszyny</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout_user' %}">Wyloguj</a></li>
+        {% else %}
+            <li><a href="{% url 'login_user' %}" class="btn btn-primary">Logowanie</a></li>
+        {% endif %}
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Najnowsze Aktualności</h2>
+            <p>Tutaj znajdziesz najnowsze wiadomości i aktualności.</p>
+        </section>
+        <section>
+            <h2>Nasze Usługi</h2>
+            <p>Narazie tylko i wyłącznie wyporzyczenia być może kiedyś bedzie można też kupywać ;).</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Strona Startowa</p>
+    </footer>
+</body>
+</html>

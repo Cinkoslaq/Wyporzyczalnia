@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Szczegóły Firmy</title>
+</head>
+<body>
+    <h1>Szczegóły Firmy</h1>
+    <p>Nazwa Firmy: {{ company.user.username }}</p>
+    <p>NIP: {{ company.NIP }}</p>
+    <p>Adres: {{ company.address }}</p>
+    <p>Opis: {{ company.description }}</p>
+
+    <h2>Oceny</h2>
+    <ul>
+        {% for rating in ratings %}
+            <li>Ocena: {{ rating.rating }}</li>
+        {% empty %}
+            <li>Brak ocen.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Komentarze</h2>
+    <ul>
+        {% for comment in comments %}
+            <li>{{ comment.content }}</li>
+        {% empty %}
+            <li>Brak komentarzy.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista Maszyn</title>
+</head>
+<body>
+    <h1>Lista Maszyn</h1>
+    <ul>
+        {% for machinery in machinery_items %}
+            <li><a href="{% url 'machinery_detail' machinery.id %}">{{ machinery.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Szczegóły Maszyny</title>
+</head>
+<body>
+    <h1>Szczegóły Maszyny</h1>
+    <p>Nazwa: {{ machinery.name }}</p>
+    <p>Ceny Wynajmu: {{ machinery.rental_price_per_day }}</p>
+    <h2>Kategorie</h2>
+    <ul>
+        {% for category in machinery.categories.all %}
+            <li>{{ category.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
