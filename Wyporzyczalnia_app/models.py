@@ -9,8 +9,9 @@ class Category(models.Model):
 
 class Machinery(models.Model):
     name = models.CharField(max_length=100)
-    categories = models.ManyToManyField(Category)  
+    categories = models.ManyToManyField(Category)
     rental_price_per_day = models.DecimalField(max_digits=10, decimal_places=2)
+    comments = models.ManyToManyField('Comments')
 
     def __str__(self):
         return self.name

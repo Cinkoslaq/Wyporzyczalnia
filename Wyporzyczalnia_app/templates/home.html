@@ -14,7 +14,9 @@
             <li><a href="{% url 'onas' %}">O nas</a></li>
             <li><a href="{% url 'uslugi' %}">Usługi</a></li>
             <li><a href="{% url 'machinery_list' %}">Maszyny</a></li>
+            <li><a href="{% url 'rental_list' %}">Lista wynajmu</a></li>
             <li><a href="{% url 'add_machinery' %}">Dodaj Maszyny</a></li>
+            <li><a href="{% url 'add_user' %}">Rejestracja</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'logout_user' %}">Wyloguj</a></li>
         {% else %}

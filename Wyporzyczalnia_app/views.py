@@ -1,8 +1,8 @@
-from django.contrib.auth.forms import AuthenticationForm
+
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import View
 
@@ -71,7 +71,6 @@ def add_machinery(request):
         form = AddMachineryForm()
 
     return render(request, 'add_machinery.html', {'form': form})
-
 
 class LoginUser(View):
     def get(self, request):
@@ -149,3 +148,4 @@ class AddUser(View):
                         'form': form,
                     }
                     return render(request, 'add_user.html', context=ctx)
+

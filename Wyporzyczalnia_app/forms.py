@@ -16,7 +16,11 @@ class AddUserForm(forms.Form):
     mail = forms.CharField(label="Email", max_length=64, widget=forms.EmailInput())
 
 class AddMachineryForm(forms.ModelForm):
+    comment = forms.CharField(
+        label="Dodaj komentarz",
+        widget=forms.Textarea(attrs={'cols': 40, 'rows': 5})
+    )
+
     class Meta:
         model = Machinery
-        fields = ['name', 'categories', 'rental_price_per_day']
-
+        fields = ['name', 'categories', 'rental_price_per_day', 'comment']
