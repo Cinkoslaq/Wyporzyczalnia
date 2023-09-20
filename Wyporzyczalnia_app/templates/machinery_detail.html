@@ -6,7 +6,7 @@
 <body>
     <h1>Szczegóły Maszyny</h1>
     <p>Nazwa: {{ machinery.name }}</p>
-    <p>Ceny Wynajmu: {{ machinery.rental_price_per_day }}</p>
+    <p>Ceny Wynajmu za dzień: {{ machinery.rental_price_per_day }}</p>
     <h2>Kategorie</h2>
     <ul>
         {% for category in machinery.categories.all %}
@@ -14,5 +14,15 @@
         {% endfor %}
     </ul>
 
+   <h2>Komentarze</h2>
+<ul>
+    {% for comment in comments %}
+        <li>{{ comment.content }}</li>
+    {% empty %}
+        <li>Brak komentarzy.</li>
+    {% endfor %}
+</ul>
+
+    </ul>
 </body>
 </html>

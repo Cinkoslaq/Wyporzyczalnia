@@ -27,7 +27,7 @@ urlpatterns = [
     path('uslugi/', views.uslugi, name='uslugi'),
     path('onas/', views.onas, name='onas'),
     path('machinery/', views.machinery_list, name='machinery_list'),
-    path('machinery/<int:machinery_id>/', views.machinery_detail, name='machinery_detail'),
+    path('machinery/<int:machinery_id>/', views.machinery_detail_view, name='machinery_detail'),
     path('rental/', views.rental_list, name='rental_list'),
     path('rental/<int:rental_id>/', views.rental_detail, name='rental_detail'),
     path('company/<int:company_id>/', views.company_detail, name='company_detail'),
@@ -37,4 +37,5 @@ urlpatterns = [
     path('logout_user/', views.LogoutUser.as_view(), name='logout_user'),
     path('add_user/', views.AddUser.as_view(), name='add_user'),
     path('add_machinery/', views.add_machinery, name='add_machinery'),
+    path('add_company/', views.add_company, name='add_company'),
 ]

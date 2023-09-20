@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dodaj Firmę</title>
+</head>
+<body>
+    <h1>Dodaj Firmę</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Nazwa użytkownika:</label>
+        <input type="text" name="username" id="username" required><br>
+        <label for="nip">NIP:</label>
+        <input type="text" name="nip" id="nip" required><br>
+        <label for="address">Adres:</label>
+        <input type="text" name="address" id="address" required><br>
+        <label for="description">Opis:</label>
+        <textarea name="description" id="description" cols="40" rows="5" required></textarea><br>
+        <button type="submit">Dodaj Firmę</button>
+    </form>
+    <a href="{% url 'home' %}">Powrót</a>
+</body>
+</html>

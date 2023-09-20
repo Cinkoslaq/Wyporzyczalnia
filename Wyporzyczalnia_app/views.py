@@ -24,9 +24,13 @@ def machinery_list(request):
     machinery_items = Machinery.objects.all()
     return render(request, 'machinery_list.html', {'machinery_items': machinery_items})
 
-def machinery_detail(request, machinery_id):
+
+def machinery_detail_view(request, machinery_id):
     machinery = get_object_or_404(Machinery, pk=machinery_id)
-    return render(request, 'machinery_detail.html', {'machinery': machinery})
+    comments = machinery.comments.all()
+    return render(request, 'machinery_detail.html', {'machinery': machinery, 'comments': comments})
+
+
 
 def rental_list(request):
     rental_items = Rental.objects.all()
@@ -35,6 +39,7 @@ def rental_list(request):
 def rental_detail(request, rental_id):
     rental = get_object_or_404(Rental, pk=rental_id)
     return render(request, 'rental_detail.html', {'rental': rental})
+
 
 def company_detail(request, company_id):
     company = get_object_or_404(Company, pk=company_id)
@@ -51,12 +56,13 @@ def add_rating(request, company_id):
     else:
         return render(request, 'add_rating.html')
 
-def add_comment(request, company_id):
+def add_comment(request, machinery_id):
     if request.method == 'POST':
         comment_content = request.POST['comment']
-        company = get_object_or_404(Company, pk=company_id)
-        Comments.objects.create(company=company, content=comment_content)
-        return HttpResponseRedirect(reverse('company_detail', args=(company_id,)))
+        machinery = get_object_or_404(Machinery, pk=machinery_id)
+        Comments.objects.create(machinery=machinery, content=comment_content)
+        # Dodaj przekierowanie do strony szczegółów maszyny po dodaniu komentarza
+        return redirect('machinery_detail', machinery_id=machinery_id)
     else:
         return render(request, 'add_comment.html')
 
@@ -149,3 +155,14 @@ class AddUser(View):
                     }
                     return render(request, 'add_user.html', context=ctx)
 
+def add_company(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        nip = request.POST['nip']
+        address = request.POST['address']
+        description = request.POST['description']
+        user, created = User.objects.get_or_create(username=username)
+        company = Company.objects.create(user=user, NIP=nip, address=address, description=description)
+        return HttpResponseRedirect(reverse('company_detail', args=(company.id,)))
+    else:
+        return render(request, 'add_company.html')

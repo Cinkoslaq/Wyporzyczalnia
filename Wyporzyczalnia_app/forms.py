@@ -24,3 +24,9 @@ class AddMachineryForm(forms.ModelForm):
     class Meta:
         model = Machinery
         fields = ['name', 'categories', 'rental_price_per_day', 'comment']
+
+class AddCompanyForm(forms.Form):
+    username = forms.CharField(max_length=100, label="Nazwa użytkownika")
+    nip = forms.CharField(max_length=15, label="NIP")
+    address = forms.CharField(max_length=200, label="Adres")
+    description = forms.CharField(widget=forms.Textarea, label="Opis")

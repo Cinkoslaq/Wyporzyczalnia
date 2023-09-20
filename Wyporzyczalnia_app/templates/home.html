@@ -14,8 +14,8 @@
             <li><a href="{% url 'onas' %}">O nas</a></li>
             <li><a href="{% url 'uslugi' %}">Usługi</a></li>
             <li><a href="{% url 'machinery_list' %}">Maszyny</a></li>
-            <li><a href="{% url 'rental_list' %}">Lista wynajmu</a></li>
             <li><a href="{% url 'add_machinery' %}">Dodaj Maszyny</a></li>
+            <li><a href="{% url 'add_company' %}">Dodaj Firmę</a></li>
             <li><a href="{% url 'add_user' %}">Rejestracja</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'logout_user' %}">Wyloguj</a></li>
@@ -26,8 +26,8 @@
     </nav>
     <main>
         <section>
-            <h2>Najnowsze Aktualności</h2>
-            <p>Tutaj znajdziesz najnowsze wiadomości i aktualności.</p>
+            <h2>Jak to działa</h2>
+            <p>W aplikacji możesz w łatwy sposób sprawdzić dostępne maszyny do wyporzyczenia, dodać firmę, utworzyć własne konto oraz samemu dodać do bazy danych własne ogłoszenie </p>
         </section>
         <section>
             <h2>Nasze Usługi</h2>
