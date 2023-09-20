@@ -15,15 +15,29 @@ class AddUserForm(forms.Form):
     lastname = forms.CharField(label="Nazwisko")
     mail = forms.CharField(label="Email", max_length=64, widget=forms.EmailInput())
 
+
 class AddMachineryForm(forms.ModelForm):
     comment = forms.CharField(
         label="Dodaj komentarz",
         widget=forms.Textarea(attrs={'cols': 40, 'rows': 5})
     )
 
+    # Pole dostawy
+    DELIVERY_CHOICES = [
+        ('self-pickup', 'Self Pickup'),
+        ('express-delivery', 'Express Delivery'),
+        ('standard-delivery', 'Standard Delivery'),
+    ]
+    delivery_type = forms.ChoiceField(
+        label="Wybierz rodzaj dostawy",
+        choices=DELIVERY_CHOICES,
+        widget=forms.RadioSelect,
+    )
+
     class Meta:
         model = Machinery
         fields = ['name', 'categories', 'rental_price_per_day', 'comment']
+
 
 class AddCompanyForm(forms.Form):
     username = forms.CharField(max_length=100, label="Nazwa użytkownika")

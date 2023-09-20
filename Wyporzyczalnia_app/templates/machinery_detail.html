@@ -18,11 +18,10 @@
 <ul>
     {% for comment in comments %}
         <li>{{ comment.content }}</li>
-    {% empty %}
-        <li>Brak komentarzy.</li>
     {% endfor %}
-</ul>
+    <h3>Informacje o Dostawie</h3>
+    <p>Typ dostawy: {{ delivery.delivery_type }}</p>
 
-    </ul>
+</ul>
 </body>
 </html>

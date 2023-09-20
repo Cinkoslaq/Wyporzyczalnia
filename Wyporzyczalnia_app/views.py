@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import View
+from datetime import date
 
 from Wyporzyczalnia_app.forms import AddUserForm, LoginUserForm, AddMachineryForm
 from Wyporzyczalnia_app.models import Machinery, Rental, Company, Ratings, Comments
@@ -28,7 +29,7 @@ def machinery_list(request):
 def machinery_detail_view(request, machinery_id):
     machinery = get_object_or_404(Machinery, pk=machinery_id)
     comments = machinery.comments.all()
-    return render(request, 'machinery_detail.html', {'machinery': machinery, 'comments': comments})
+    return render(request, 'machinery_detail.html', {'machinery': machinery, 'comments': comments,})
 
 
 
@@ -61,7 +62,6 @@ def add_comment(request, machinery_id):
         comment_content = request.POST['comment']
         machinery = get_object_or_404(Machinery, pk=machinery_id)
         Comments.objects.create(machinery=machinery, content=comment_content)
-        # Dodaj przekierowanie do strony szczegółów maszyny po dodaniu komentarza
         return redirect('machinery_detail', machinery_id=machinery_id)
     else:
         return render(request, 'add_comment.html')
@@ -166,3 +166,4 @@ def add_company(request):
         return HttpResponseRedirect(reverse('company_detail', args=(company.id,)))
     else:
         return render(request, 'add_company.html')
+
