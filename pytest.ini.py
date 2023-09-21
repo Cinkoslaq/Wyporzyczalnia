@@ -1,4 +1,5 @@
-import Wyporzyczalnia_app
+import pytest
+
 
 [pytest]
-DJANGO_SETTINGS_MODULE = Wyporzyczalnia_app.settings
+DJANGO_SETTINGS_MODULE = Wyporzyczalnia_op1.settings

@@ -198,3 +198,12 @@ def add_delivery(request, rental_id):
 def company_list(request):
     companies = Company.objects.all()
     return render(request, 'company_list.html', {'companies': companies})
+
+def delete_machinery(request, machinery_id):
+    machinery = get_object_or_404(Machinery, pk=machinery_id)
+
+    if request.method == 'POST':
+        machinery.delete()
+        return redirect('machinery_list')  # Przekieruj na listę maszyn lub inny widok po usunięciu
+
+    return render(request, 'delete_machinery.html', {'machinery': machinery})

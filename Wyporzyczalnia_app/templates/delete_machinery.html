@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Usuwanie maszyny</title>
+</head>
+<body>
+    <h1>Czy na pewno chcesz usunąć maszynę "{{ machinery.name }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Usuń">
+    </form>
+    <a href="{% url 'machinery_list' %}">Powrót do listy maszyn</a>
+</body>
+</html>

@@ -64,4 +64,3 @@ class Ratings(models.Model):
 class Comments(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     content = models.TextField()
-
