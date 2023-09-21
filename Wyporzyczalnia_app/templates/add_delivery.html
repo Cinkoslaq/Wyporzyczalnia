@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wybierz Typ Dostawy</title>
+</head>
+<body>
+    <h1>Wybierz Typ Dostawy</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="delivery_type">Typ Dostawy:</label>
+        <select name="delivery_type" id="delivery_type" required>
+            <option value="self-pickup">Self Pickup</option>
+            <option value="express-delivery">Express Delivery</option>
+            <option value="standard-delivery">Standard Delivery</option>
+        </select>
+        <br>
+        <button type="submit">Dodaj Dostawę</button>
+    </form>
+</body>
+</html>

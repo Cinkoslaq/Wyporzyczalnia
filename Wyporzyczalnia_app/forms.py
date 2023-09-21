@@ -1,6 +1,6 @@
 from django import forms
 
-from Wyporzyczalnia_app.models import Machinery
+from Wyporzyczalnia_app.models import Machinery, Comments, Company
 
 
 class LoginUserForm(forms.Form):
@@ -44,3 +44,24 @@ class AddCompanyForm(forms.Form):
     nip = forms.CharField(max_length=15, label="NIP")
     address = forms.CharField(max_length=200, label="Adres")
     description = forms.CharField(widget=forms.Textarea, label="Opis")
+
+class AddCommentForm(forms.ModelForm):
+    content = forms.CharField(
+        label="Dodaj komentarz",
+        widget=forms.Textarea(attrs={'cols': 40, 'rows': 5})
+    )
+
+    # Dodaj pole do wyboru firmy
+    company = forms.ModelChoiceField(
+        queryset=Company.objects.all(),  # To pobierze wszystkie dostępne firmy z bazy danych
+        label="Wybierz firmę"
+    )
+
+    class Meta:
+        model = Comments
+        fields = ['company', 'content']
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comments
+        fields = ['content']

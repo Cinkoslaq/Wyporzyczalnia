@@ -7,11 +7,7 @@
     <h1>Dodaj Komentarz</h1>
     <form method="post">
         {% csrf_token %}
-        <label for="comment">Komentarz:</label>
-        <label>
-            <textarea name="comment" rows="4" cols="50" required></textarea>
-        </label>
-        <br>
+        {{ form.as_p }}
         <button type="submit">Dodaj Komentarz</button>
     </form>
 </body>

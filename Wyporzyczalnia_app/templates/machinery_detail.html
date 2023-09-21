@@ -14,14 +14,14 @@
         {% endfor %}
     </ul>
 
-   <h2>Komentarze</h2>
-<ul>
-    {% for comment in comments %}
-        <li>{{ comment.content }}</li>
-    {% endfor %}
-    <h3>Informacje o Dostawie</h3>
-    <p>Typ dostawy: {{ delivery.delivery_type }}</p>
+    <h2>Komentarze</h2>
+    <ul>
+        {% for comment in comments %}
+            <li>{{ comment.content }}</li>
+        {% endfor %}
+    </ul>
 
-</ul>
+    <!-- Link do dodawania komentarza -->
+    <a href="{% url 'add_comment' machinery_id=machinery.id %}">Dodaj Komentarz</a>
 </body>
 </html>

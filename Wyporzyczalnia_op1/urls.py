@@ -38,4 +38,6 @@ urlpatterns = [
     path('add_user/', views.AddUser.as_view(), name='add_user'),
     path('add_machinery/', views.add_machinery, name='add_machinery'),
     path('add_company/', views.add_company, name='add_company'),
+    path('rental/<int:rental_id>/add_delivery/', views.add_delivery, name='add_delivery'),
+    path('machinery/<int:machinery_id>/add_comment/', views.add_comment, name='add_comment'),
 ]
