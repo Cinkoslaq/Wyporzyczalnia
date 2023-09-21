@@ -1,6 +1,6 @@
 from django import forms
 
-from Wyporzyczalnia_app.models import Machinery, Comments, Company
+from Wyporzyczalnia_app.models import Machinery, Comments, Company, Ratings
 
 
 class LoginUserForm(forms.Form):
@@ -65,3 +65,8 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comments
         fields = ['content']
+
+class AddRatingForm(forms.ModelForm):
+    class Meta:
+        model = Ratings
+        fields = ['rating']

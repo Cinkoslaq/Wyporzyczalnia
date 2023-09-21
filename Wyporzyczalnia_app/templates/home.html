@@ -16,6 +16,7 @@
             <li><a href="{% url 'machinery_list' %}">Maszyny</a></li>
             <li><a href="{% url 'add_machinery' %}">Dodaj Maszyny</a></li>
             <li><a href="{% url 'add_company' %}">Dodaj Firmę</a></li>
+            <li><a href="{% url 'company_list' %}">Firmy</a></li>
             <li><a href="{% url 'add_user' %}">Rejestracja</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'logout_user' %}">Wyloguj</a></li>

@@ -27,5 +27,12 @@
             <li>Brak komentarzy.</li>
         {% endfor %}
     </ul>
+
+    <h2>Wystaw Oceny</h2>
+    <form method="post" action="{% url 'company_detail' company.id %}">
+        {% csrf_token %}
+        {{ add_rating_form.as_p }}
+        <button type="submit">Wystaw Ocenę</button>
+    </form>
 </body>
 </html>

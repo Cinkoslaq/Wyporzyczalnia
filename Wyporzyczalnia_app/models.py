@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
 
@@ -51,7 +52,13 @@ class Company(models.Model):
 
 class Ratings(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
-    rating = models.PositiveIntegerField()
+    rating = models.PositiveSmallIntegerField(
+        validators=[
+            MinValueValidator(1, "Ocena musi być większa lub równa 1."),
+            MaxValueValidator(5, "Ocena musi być mniejsza lub równa 5.")
+        ]
+    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Comments(models.Model):

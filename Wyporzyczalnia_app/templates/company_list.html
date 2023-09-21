@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista Firm</title>
+</head>
+<body>
+    <h1>Lista Firm</h1>
+    <ul>
+        {% for company in companies %}
+            <li>
+                <a href="{% url 'company_detail' company.id %}">{{ company.user.username }}</a>
+            </li>
+        {% empty %}
+            <li>Brak dostępnych firm.</li>
+        {% endfor %}
+    </ul>
+<a href="{% url 'home' %}">Powrót</a>
+</body>
+</html>
