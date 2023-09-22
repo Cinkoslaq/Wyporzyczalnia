@@ -8,10 +8,9 @@ def test_add_machinery(client):
     data = {
         'name': 'Nowa Maszyna',
         'rental_price_per_day': 200,
-        'categories': 'maszyny budowlane,maszyny rolnicze,transport',  # Kategorie oddzielone przecinkami
+        'categories': 'maszyny budowlane,maszyny rolnicze,transport',
     }
     response = client.post(reverse('add_machinery'), data)
-    # Oczekujemy kodu 200, jeśli widok wyświetla potwierdzenie dodania maszyny
     assert response.status_code == 200
 
 
@@ -40,6 +39,6 @@ def test_add_comment(client):
     # Test dodawania komentarza
     machinery = Machinery.objects.create(name='Maszyna z komentarzem', rental_price_per_day=300)
     response = client.post(reverse('add_comment', args=[machinery.id]), {'text': 'To jest komentarz'})
-    # Oczekujemy kodu 302, jeśli widok przekierowuje użytkownika
     assert response.status_code == 302
+
 
