@@ -1,2 +1,2 @@
-# Wyporzyczalnia
+# Wypożyczalnia
 An application for renting
